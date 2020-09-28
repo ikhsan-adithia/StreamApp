@@ -34,30 +34,33 @@ data class SocmedItem(
 
 data class Data(
 
-	@field:SerializedName("bio")
-	val bio: String? = null,
-
 	@field:SerializedName("id")
 	val id: String? = null,
-
-	@field:SerializedName("fullname")
-	val fullname: String? = null,
-
-	@field:SerializedName("jenis_kelamin")
-	val jenisKelamin: String? = null,
-
-	@field:SerializedName("socmed")
-	val socmed: List<SocmedItem?>? = null,
-
-	@field:SerializedName("tgl_lahir")
-	val tglLahir: String? = null,
 
 	@field:SerializedName("picture")
 	val picture: String? = null,
 
+	@field:SerializedName("fullname")
+	val fullname: String? = null,
+
 	@field:SerializedName("username")
 	val username: String? = null,
 
+	@field:SerializedName("bio")
+	val bio: String? = null,
+
+	@field:SerializedName("jenis_kelamin")
+	val jenisKelamin: String? = null,
+
+	@field:SerializedName("tgl_lahir")
+	val tglLahir: String? = null,
+
 	@field:SerializedName("status")
-	val status: String? = null
-)
+	val status: String? = null,
+
+	@field:SerializedName("socmed")
+	val socmed: List<SocmedItem?>? = null
+) {
+	constructor():
+			this("", "", "", "", "", "", "", "")
+}

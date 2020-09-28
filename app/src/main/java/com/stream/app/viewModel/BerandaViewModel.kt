@@ -23,6 +23,9 @@ class BerandaViewModel(application: Application): AndroidViewModel(application) 
     private var userDetailList = mutableListOf<String>()
     private var _userDetails = MutableLiveData<List<String>>()
 
+//    private var userDetailList = Data()
+//    private var _userDetails = MutableLiveData<Data>()
+
     init {
         this.errors.value = errorList
         this    ._userDetails.value = userDetailList
@@ -50,10 +53,6 @@ class BerandaViewModel(application: Application): AndroidViewModel(application) 
                 response: Response<ProfileResponse>
             ) {
                 Log.d(TAG, response.code().toString())
-                Toast.makeText(
-                    getApplication(),
-                    response.code().toString(),
-                    Toast.LENGTH_SHORT).show()
                 Log.d(TAG, response.isSuccessful.toString())
                 Log.d(TAG, response.message().toString())
 
@@ -63,10 +62,18 @@ class BerandaViewModel(application: Application): AndroidViewModel(application) 
                     val picture = responseSuccess.data!!.picture ?: ""
                     val fullname = responseSuccess.data.fullname ?: ""
                     val username = responseSuccess.data.username ?: ""
-                    val bio = responseSuccess.data.bio ?: ""
+                    val bio = responseSuccess.data.bio ?: "  "
                     val jenisKelamin = responseSuccess.data.jenisKelamin ?: ""
                     val tglLahir = responseSuccess.data.tglLahir ?: ""
+                    val status = responseSuccess.data.status ?: ""
                     val socmed = responseSuccess.data.socmed.toString()
+                    Log.d(TAG, "picture: $picture")
+                    Log.d(TAG, "fullname: $fullname")
+                    Log.d(TAG, "username: $username")
+                    Log.d(TAG, "bio: $bio")
+                    Log.d(TAG, "jeniskelamin: $jenisKelamin")
+                    Log.d(TAG, "tglLahir: $tglLahir")
+                    Log.d(TAG, "status: $status")
                     Log.d(TAG, "social media: $socmed")
 //                    userDetailList.add(picture)
 //                    userDetailList.add(fullname)
@@ -80,10 +87,22 @@ class BerandaViewModel(application: Application): AndroidViewModel(application) 
                         username,
                         bio,
                         jenisKelamin,
-                        tglLahir
+                        tglLahir,
+                        status
                     ))
+//                    _userDetails.value = userDetailList
+//                    userDetailList = Data(
+//                        picture,
+//                        fullname,
+//                        username,
+//                        bio,
+//                        jenisKelamin,
+//                        tglLahir,
+//                        status
+//                    )
+
                     _userDetails.value = userDetailList
-                    Log.d(TAG, "userDetail: $userDetailList")
+//                    Log.d(TAG, "userDetail: $_userDetails")
                 } else {
                     handleErrorResponse(response)
                 }
