@@ -9,6 +9,7 @@ import retrofit2.Call
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 import retrofit2.http.*
+import java.util.concurrent.TimeUnit
 
 interface ApiInterface {
 
@@ -36,9 +37,11 @@ interface ApiInterface {
         @Field ("password") password: String
     ): Call<LoginResponse>
 
+//    @Headers("Content-Length: 49")
     @GET("api/account/profile")
     fun getProfile(
-        @Query("access_token") accessToken: String
+    @Header("Authorization") header: String
+//        @Query("access_token") accessToken: String
     ): Call<ProfileResponse>
 
     companion object {
@@ -49,7 +52,15 @@ interface ApiInterface {
                 this.level = HttpLoggingInterceptor.Level.BODY
             }
 
-            val client: OkHttpClient = OkHttpClient.Builder().apply {
+//            val client: OkHttpClient = OkHttpClient.Builder().apply {
+//                this.addInterceptor(interceptor)
+//            }.build()
+            val builder: OkHttpClient.Builder = OkHttpClient.Builder()
+            builder.connectTimeout(30, TimeUnit.SECONDS)
+                .writeTimeout(30, TimeUnit.SECONDS)
+                .readTimeout(30, TimeUnit.SECONDS)
+
+            val client: OkHttpClient = builder.apply {
                 this.addInterceptor(interceptor)
             }.build()
 

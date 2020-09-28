@@ -6,6 +6,7 @@
     android:layout_height="match_parent"
     tools:context=".view.BerandaActivity"
     android:gravity="center"
+    android:background="@color/colorPrimaryDark"
     android:orientation="vertical">
 
     <ScrollView
@@ -209,6 +210,62 @@
                     android:layout_height="wrap_content"
                     android:layout_marginTop="10dp"
                     android:fontFamily="@font/roboto_condensed_bold"
+                    android:text="Bio"
+                    android:textAllCaps="true"
+                    android:textColor="@color/textColor"
+                    android:textSize="14sp"
+                    android:textStyle="italic" />
+
+                <EditText
+                    android:id="@+id/tv_bio_Beranda"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/edittext_rounded"
+                    android:fontFamily="@font/roboto_light"
+                    android:textColor="@color/textColorEdittext"
+                    android:textSize="14sp"
+                    android:inputType="textPersonName"
+                    android:hint="Bio"
+                    android:textColorHint="@color/textColorEdittext"
+                    android:layout_marginTop="4dp"
+                    android:paddingStart="20dp"
+                    android:paddingTop="10dp"
+                    android:paddingEnd="20dp"
+                    android:paddingBottom="10dp" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:fontFamily="@font/roboto_condensed_bold"
+                    android:text="Status"
+                    android:textAllCaps="true"
+                    android:textColor="@color/textColor"
+                    android:textSize="14sp"
+                    android:textStyle="italic" />
+
+                <EditText
+                    android:id="@+id/tv_status_Beranda"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/edittext_rounded"
+                    android:fontFamily="@font/roboto_light"
+                    android:textColor="@color/textColorEdittext"
+                    android:textSize="14sp"
+                    android:inputType="textPersonName"
+                    android:hint="Status"
+                    android:textColorHint="@color/textColorEdittext"
+                    android:layout_marginTop="4dp"
+                    android:paddingStart="20dp"
+                    android:paddingTop="10dp"
+                    android:paddingEnd="20dp"
+                    android:paddingBottom="10dp" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:fontFamily="@font/roboto_condensed_bold"
                     android:text="Province"
                     android:textAllCaps="true"
                     android:textColor="@color/textColor"
@@ -328,7 +385,7 @@
                     android:textStyle="italic" />
 
                 <RadioGroup
-                    android:id="@+id/rb_gender_Beranda"
+                    android:id="@+id/rg_gender_Beranda"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:orientation="horizontal"
