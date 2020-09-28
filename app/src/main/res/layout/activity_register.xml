@@ -1,0 +1,401 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorPrimaryDark"
+    tools:context=".view.RegisterActivity">
+
+    <LinearLayout
+        android:id="@+id/overlay_Register"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:visibility="gone"
+        android:orientation="vertical"
+        android:gravity="center"
+        android:background="#60000000"
+        android:elevation="1dp">
+
+        <com.github.ybq.android.spinkit.SpinKitView
+            android:id="@+id/spin_kit"
+            style="@style/SpinKitView.Large.ThreeBounce"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            app:SpinKit_Color="@color/colorButtonNormal" />
+
+    </LinearLayout>
+
+    <ScrollView
+        android:id="@+id/mainLayout_Register"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <FrameLayout
+            android:id="@+id/frameLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="24dp"
+            android:layout_marginTop="24dp"
+            android:layout_marginEnd="24dp"
+            android:layout_marginBottom="24dp"
+            android:background="@drawable/card_primary"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                android:padding="20dp">
+
+                <TextView
+                    android:id="@+id/tv_errors_Register"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/roboto_light"
+                    android:textColor="@color/red"
+                    android:textStyle="italic"
+                    android:visibility="gone"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/roboto_condensed_bold"
+                    android:text="FULLNAME"
+                    android:textColor="@color/textColor"
+                    android:textStyle="italic" />
+
+                <EditText
+                    android:id="@+id/et_fullname_Registrasi"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:background="@drawable/edittext_rounded"
+                    android:ems="10"
+                    android:fontFamily="@font/roboto_light"
+                    android:hint="@string/enter_your_fullname"
+                    android:inputType="textPersonName"
+                    android:paddingStart="10dp"
+                    android:paddingTop="8dp"
+                    android:paddingEnd="10dp"
+                    android:paddingBottom="8dp"
+                    android:textColor="@color/textColor"
+                    android:textColorHint="@color/hintEdittextColor"
+                    android:textSize="12sp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="12dp"
+                    android:fontFamily="@font/roboto_condensed_bold"
+                    android:text="USERNAME"
+                    android:textColor="@color/textColor"
+                    android:textStyle="italic" />
+
+                <EditText
+                    android:id="@+id/et_username_Registrasi"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:background="@drawable/edittext_rounded"
+                    android:ems="10"
+                    android:fontFamily="@font/roboto_light"
+                    android:hint="@string/enter_your_username"
+                    android:inputType="textPersonName"
+                    android:paddingStart="10dp"
+                    android:paddingTop="8dp"
+                    android:paddingEnd="10dp"
+                    android:paddingBottom="8dp"
+                    android:textColor="@color/textColor"
+                    android:textColorHint="@color/hintEdittextColor"
+                    android:textSize="12sp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="2dp"
+                    android:fontFamily="@font/roboto_light"
+                    android:paddingStart="12dp"
+                    android:paddingEnd="12dp"
+                    android:text="@string/gunakan_username_dengan_format_yang_valid_tanpa_simbol_apapun"
+                    android:textColor="@color/textColor"
+                    android:textSize="11sp"
+                    android:textStyle="italic" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="12dp"
+                    android:fontFamily="@font/roboto_condensed_bold"
+                    android:text="PASSWORD"
+                    android:textColor="@color/textColor"
+                    android:textStyle="italic" />
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:textColorHint="@color/hintEdittextColor"
+                    app:hintAnimationEnabled="false"
+                    app:hintEnabled="false"
+                    app:passwordToggleDrawable="@drawable/ic_invisible"
+                    app:passwordToggleEnabled="true">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/et_password_Registrasi"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="8dp"
+                        android:background="@drawable/edittext_rounded"
+                        android:ems="10"
+                        android:fontFamily="@font/roboto_light"
+                        android:hint="@string/enter_your_password"
+                        android:inputType="textPassword"
+                        android:paddingStart="10dp"
+                        android:paddingTop="6dp"
+                        android:paddingEnd="10dp"
+                        android:paddingBottom="6dp"
+                        android:textColor="@color/textColor"
+                        android:textColorHint="@color/hintEdittextColor"
+                        android:textSize="12sp" />
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="2dp"
+                    android:fontFamily="@font/roboto_light"
+                    android:paddingStart="12dp"
+                    android:paddingEnd="12dp"
+                    android:text="@string/password_harus_terdiri_dari_kombinasi_huruf_dan_angka"
+                    android:textColor="@color/textColor"
+                    android:textSize="11sp"
+                    android:textStyle="italic" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="12dp"
+                    android:fontFamily="@font/roboto_condensed_bold"
+                    android:text="REPEAT PASSWORD"
+                    android:textColor="@color/textColor"
+                    android:textStyle="italic" />
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:textColorHint="@color/hintEdittextColor"
+                    app:hintAnimationEnabled="false"
+                    app:hintEnabled="false"
+                    app:passwordToggleDrawable="@drawable/ic_invisible"
+                    app:passwordToggleEnabled="true">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/et_confirmPassword_Registrasi"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="8dp"
+                        android:background="@drawable/edittext_rounded"
+                        android:ems="10"
+                        android:fontFamily="@font/roboto_light"
+                        android:hint="@string/repeat_your_password"
+                        android:inputType="textPassword"
+                        android:paddingStart="10dp"
+                        android:paddingTop="6dp"
+                        android:paddingEnd="10dp"
+                        android:paddingBottom="6dp"
+                        android:textColor="@color/textColor"
+                        android:textColorHint="@color/hintEdittextColor"
+                        android:textSize="12sp" />
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="2dp"
+                    android:fontFamily="@font/roboto_light"
+                    android:paddingStart="12dp"
+                    android:paddingEnd="12dp"
+                    android:text="@string/password_harus_terdiri_dari_kombinasi_huruf_dan_angka"
+                    android:textColor="@color/textColor"
+                    android:textSize="11sp"
+                    android:textStyle="italic" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="12dp"
+                    android:fontFamily="@font/roboto_condensed_bold"
+                    android:text="GENDER"
+                    android:textColor="@color/textColor"
+                    android:textStyle="italic" />
+
+                <RadioGroup
+                    android:id="@+id/rb_gender_Registrasi"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="horizontal">
+
+                    <RadioButton
+                        android:id="@+id/rb_Male"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:buttonTint="@color/colorButtonNormal"
+                        android:fontFamily="@font/roboto_condensed_bold"
+                        android:checked="true"
+                        android:text="Male"
+                        android:textColor="@color/textColor"
+                        android:textStyle="italic" />
+
+                    <RadioButton
+                        android:id="@+id/rb_Female"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:buttonTint="@color/colorButtonNormal"
+                        android:fontFamily="@font/roboto_condensed_bold"
+                        android:text="Female"
+                        android:textColor="@color/textColor"
+                        android:textStyle="italic" />
+                </RadioGroup>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="12dp"
+                    android:fontFamily="@font/roboto_condensed_bold"
+                    android:text="EMAIL"
+                    android:textColor="@color/textColor"
+                    android:textStyle="italic" />
+
+                <EditText
+                    android:id="@+id/et_email_Registrasi"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:background="@drawable/edittext_rounded"
+                    android:ems="10"
+                    android:fontFamily="@font/roboto_light"
+                    android:hint="@string/enter_your_email"
+                    android:inputType="textEmailAddress"
+                    android:paddingStart="10dp"
+                    android:paddingTop="8dp"
+                    android:paddingEnd="10dp"
+                    android:paddingBottom="8dp"
+                    android:textColor="@color/textColor"
+                    android:textColorHint="@color/hintEdittextColor"
+                    android:textSize="12sp" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="12dp"
+                    android:orientation="horizontal"
+                    android:weightSum="6">
+
+                    <Button
+                        android:id="@+id/btn_PilihTanggal"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="2"
+                        android:background="@drawable/rounded_button"
+                        android:fontFamily="@font/roboto_condensed_bold"
+                        android:padding="15dp"
+                        android:text="Pilih Tanggal Lahir"
+                        android:textColor="@color/textColor"
+                        android:textSize="12sp"
+                        android:textStyle="italic" />
+
+                    <TextView
+                        android:id="@+id/tv_DOB_Register"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="15dp"
+                        android:layout_weight="4"
+                        android:background="@drawable/edittext_rounded"
+                        android:fontFamily="@font/roboto_condensed_bold"
+                        android:paddingStart="15dp"
+                        android:paddingTop="15dp"
+                        android:paddingEnd="15dp"
+                        android:paddingBottom="15dp"
+                        android:hint="00-00-000"
+                        android:textColorHint="@color/textColorDisable"
+                        android:textAlignment="center"
+                        android:textColor="@color/textColor"
+                        android:textSize="17sp" />
+
+                </LinearLayout>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="12dp"
+                    android:fontFamily="@font/roboto_condensed_bold"
+                    android:text="PHONE NUMBER  (OPTIONAL)"
+                    android:textColor="@color/textColor"
+                    android:textStyle="italic" />
+
+                <EditText
+                    android:id="@+id/et_phoneNumber_Registrasi"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:background="@drawable/edittext_rounded"
+                    android:ems="10"
+                    android:fontFamily="@font/roboto_light"
+                    android:hint="@string/enter_your_phone_number"
+                    android:inputType="phone"
+                    android:paddingStart="10dp"
+                    android:paddingTop="8dp"
+                    android:paddingEnd="10dp"
+                    android:paddingBottom="8dp"
+                    android:textColor="@color/textColor"
+                    android:textColorHint="@color/hintEdittextColor"
+                    android:textSize="12sp" />
+
+                <CheckBox
+                    android:id="@+id/cb_syaratKetentuan_Register"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="15dp"
+                    android:buttonTint="@color/colorButtonNormal"
+                    android:fontFamily="@font/roboto_condensed_bold"
+                    android:text="@string/setuju_dengan_syarat_dan_ketentuan_yang_berlaku"
+                    android:textColor="@color/textColor" />
+
+                <TextView
+                    android:id="@+id/tv_haveAccount_Register"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="12dp"
+                    android:fontFamily="@font/roboto_light"
+                    android:text="@string/already_have_an_account_login"
+                    android:textColor="@color/textColor"
+                    android:textSize="13sp" />
+
+                <Button
+                    android:id="@+id/btn_createAccount_Register"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:background="@drawable/rounded_button"
+                    android:fontFamily="@font/roboto_condensed_bold"
+                    android:padding="12dp"
+                    android:text="CREATE YOUR ACCOUNT"
+                    android:textColor="@color/textColor"
+                    android:textSize="12sp"
+                    android:textStyle="italic" />
+
+            </LinearLayout>
+
+        </FrameLayout>
+
+    </ScrollView>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

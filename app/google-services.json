@@ -1,0 +1,114 @@
+{
+  "project_info": {
+    "project_number": "438884604287",
+    "firebase_url": "https://stream-project-a83fd.firebaseio.com",
+    "project_id": "stream-project-a83fd",
+    "storage_bucket": "stream-project-a83fd.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:438884604287:android:b4681bf8f12167e50e624a",
+        "android_client_info": {
+          "package_name": "com.example.notiftest"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "438884604287-jqvn04otn9mtdsotsi8ahtouchcgv42h.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.notiftest",
+            "certificate_hash": "95c646701e06c449aac1af111972118dfd4024fe"
+          }
+        },
+        {
+          "client_id": "438884604287-ll2u4dih0d7a6purh8cd6b7577c9b93j.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC3u1JGhPnBiWbYQxCVl5LrpvJnhV-9c_8"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "438884604287-ll2u4dih0d7a6purh8cd6b7577c9b93j.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:438884604287:android:fe83f7e6e4a2554f0e624a",
+        "android_client_info": {
+          "package_name": "com.stream.app"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "438884604287-ll2u4dih0d7a6purh8cd6b7577c9b93j.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC3u1JGhPnBiWbYQxCVl5LrpvJnhV-9c_8"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "438884604287-ll2u4dih0d7a6purh8cd6b7577c9b93j.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:438884604287:android:b0711d8b6797e8730e624a",
+        "android_client_info": {
+          "package_name": "com.stream.gaming"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "438884604287-sjmtm94bnkfld0otjs110avbsqvovrdk.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.stream.gaming",
+            "certificate_hash": "95c646701e06c449aac1af111972118dfd4024fe"
+          }
+        },
+        {
+          "client_id": "438884604287-ll2u4dih0d7a6purh8cd6b7577c9b93j.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC3u1JGhPnBiWbYQxCVl5LrpvJnhV-9c_8"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "438884604287-ll2u4dih0d7a6purh8cd6b7577c9b93j.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -1,0 +1,43 @@
+<resources>
+    <string name="app_name">Streamgaming</string>
+
+    // register
+    <string name="enter_your_fullname">Enter your Fullname…</string>
+    <string name="enter_your_username">Enter your Username…</string>
+    <string name="enter_your_password">Enter your Password…</string>
+    <string name="repeat_your_password">Repeat your Password…</string>
+    <string name="enter_your_email">Enter your Email…</string>
+    <string name="enter_your_phone_number">Enter your phone number…</string>
+    <string name="gunakan_username_dengan_format_yang_valid_tanpa_simbol_apapun">Gunakan username dengan format yang valid tanpa simbol apapun .</string>
+    <string name="password_harus_terdiri_dari_kombinasi_huruf_dan_angka">Password harus terdiri dari kombinasi huruf dan angka .</string>
+    <string name="setuju_dengan_syarat_dan_ketentuan_yang_berlaku">SETUJU DENGAN <b>SYARAT DAN KETENTUAN</b> YANG BERLAKU</string>
+    <string name="already_have_an_account_login">Already have an Account? <b>Login</b></string>
+
+    // login
+    <string name="don_t_have_an_account_register">Don\'t have an Account? <b>Register</b></string>
+
+    <string-array name="province">
+        <item>Aceh</item>
+        <item>Sumatera Utara</item>
+        <item>Sumatera Barat</item>
+        <item>Riau</item>
+        <item>Jambi</item>
+        <item>Sumatera Selatan</item>
+        <item>Bengkulu</item>
+        <item>Lampung</item>
+        <item>Kepulauan Bangka Belitung</item>
+        <item>Banten</item>
+        <item>Jawa Barat</item>
+        <item>Jakarta</item>
+        <item>Jawa Tengah</item>
+        <item>Yogyakarta</item>
+        <item>Jawa Timur</item>
+        <item>Bali</item>
+        <item>Nusa Tenggara Barat</item>
+        <item>Nusa Tenggara Timur</item>
+        <item>Kalimantan Barat</item>
+        <item>Bali</item>
+        <item>Bali</item>
+    </string-array>
+
+</resources>

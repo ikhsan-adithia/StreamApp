@@ -1,0 +1,237 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorPrimaryDark">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:background="@drawable/card_primary"
+        android:layout_margin="25dp"
+        android:paddingStart="25dp"
+        android:paddingEnd="25dp"
+        android:gravity="center">
+
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/img_profile_Beranda"
+            android:layout_width="96dp"
+            android:layout_height="96dp"
+            android:layout_marginTop="25dp"
+            android:src="@color/red"
+            app:civ_border_color="#FF000000"
+            app:civ_border_width="2dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:src="@drawable/edittext_rounded" />
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center">
+
+            <ImageView
+                android:layout_width="10dp"
+                android:layout_height="10dp"
+                android:background="@drawable/ic_camera" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="3dp"
+                android:fontFamily="@font/roboto_condensed_bold"
+                android:text="Change Photo"
+                android:textColor="@color/hintEdittextColor"
+                android:textSize="10sp"
+                android:textStyle="italic" />
+
+        </LinearLayout>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="25dp"
+            android:fontFamily="@font/roboto_condensed_bold"
+            android:text="My Name Is"
+            android:textColor="@color/textColor"
+            android:textAllCaps="true"
+            android:textSize="14sp" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:fontFamily="@font/roboto_condensed_bold"
+            android:text="Fullname"
+            android:textAllCaps="true"
+            android:textColor="@color/textColor"
+            android:textSize="14sp"
+            android:textStyle="italic" />
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/edittext_rounded"
+            android:fontFamily="@font/roboto_light"
+            android:textColor="@color/textColorEdittext"
+            android:textSize="14sp"
+            android:inputType="textPersonName"
+            android:text="Fullname"
+            android:layout_marginTop="4dp"
+            android:paddingStart="20dp"
+            android:paddingTop="10dp"
+            android:paddingEnd="20dp"
+            android:paddingBottom="10dp" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:fontFamily="@font/roboto_condensed_bold"
+            android:text="Username"
+            android:textAllCaps="true"
+            android:textColor="@color/textColor"
+            android:textSize="14sp"
+            android:textStyle="italic" />
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:enabled="false"
+            android:background="@drawable/edittext_rounded_disable"
+            android:fontFamily="@font/roboto_light"
+            android:textColor="@color/colorPrimaryDark"
+            android:textSize="14sp"
+            android:inputType="textPersonName"
+            android:text="Username"
+            android:layout_marginTop="4dp"
+            android:paddingStart="20dp"
+            android:paddingTop="10dp"
+            android:paddingEnd="20dp"
+            android:paddingBottom="10dp" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:fontFamily="@font/roboto_condensed_bold"
+            android:text="Email"
+            android:textAllCaps="true"
+            android:textColor="@color/textColor"
+            android:textSize="14sp"
+            android:textStyle="italic" />
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:enabled="false"
+            android:background="@drawable/edittext_rounded_disable"
+            android:fontFamily="@font/roboto_light"
+            android:textColor="@color/colorPrimaryDark"
+            android:textSize="14sp"
+            android:inputType="textPersonName"
+            android:text="Email"
+            android:layout_marginTop="4dp"
+            android:paddingStart="20dp"
+            android:paddingTop="10dp"
+            android:paddingEnd="20dp"
+            android:paddingBottom="10dp" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:orientation="horizontal"
+            android:gravity="center"
+            android:weightSum="6">
+
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_weight="2"
+                android:paddingStart="15dp"
+                android:paddingEnd="15dp"
+                android:background="@drawable/rounded_button"
+                android:fontFamily="@font/roboto_condensed_bold"
+                android:text="Date Of Birth"
+                android:textColor="@color/textColor"
+                android:textSize="11sp"
+                android:textStyle="italic" />
+
+            <TextView
+                android:id="@+id/tv_DOB_Beranda"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_weight="4"
+                android:background="@drawable/edittext_rounded"
+                android:fontFamily="@font/roboto_condensed_bold"
+                android:paddingStart="20dp"
+                android:paddingTop="10dp"
+                android:paddingEnd="20dp"
+                android:paddingBottom="10dp"
+                android:hint="0000-00-00"
+                android:textColorHint="@color/textColorEdittext"
+                android:textAlignment="center"
+                android:textColor="@color/textColorEdittext"
+                android:textSize="14sp" />
+
+        </LinearLayout>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:fontFamily="@font/roboto_condensed_bold"
+            android:text="Province"
+            android:textAllCaps="true"
+            android:textColor="@color/textColor"
+            android:textSize="14sp"
+            android:textStyle="italic" />
+
+        <Spinner
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:enabled="false"
+            android:background="@drawable/spinner_rounded"
+            android:fontFamily="@font/roboto_light"
+            android:textColor="@color/colorPrimaryDark"
+            android:textSize="14sp"
+            android:inputType="textPersonName"
+            android:entries="@array/province"
+            android:layout_marginTop="4dp"
+            android:paddingStart="20dp"
+            android:paddingTop="10dp"
+            android:paddingEnd="20dp"
+            android:paddingBottom="10dp" />
+
+<!--        <com.skydoves.powerspinner.PowerSpinnerView-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:background="@drawable/spinner_rounded"-->
+<!--            android:gravity="center"-->
+<!--            android:hint="Question 1"-->
+<!--            android:padding="10dp"-->
+<!--            android:textColor="@color/textColor"-->
+<!--            android:textColorHint="@color/textColorDisable"-->
+<!--            android:textSize="14.5sp"-->
+<!--            app:spinner_arrow_gravity="end"-->
+<!--            app:spinner_arrow_padding="8dp"-->
+<!--            app:spinner_divider_color="@color/colorPrimaryDark"-->
+<!--            app:spinner_divider_show="true"-->
+<!--            app:spinner_divider_size="0.4dp"-->
+<!--            app:spinner_item_array="@array/province"-->
+<!--            app:spinner_popup_animation="dropdown"-->
+<!--            app:spinner_popup_background="@color/textColorDisable"-->
+<!--            app:spinner_popup_elevation="14dp" />-->
+
+    </LinearLayout>
+
+</LinearLayout>
