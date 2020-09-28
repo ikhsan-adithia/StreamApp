@@ -32,14 +32,15 @@ class BerandaViewModel(application: Application): AndroidViewModel(application) 
             ) {
                 Log.d(TAG, response.code().toString())
                 Log.d(TAG, response.isSuccessful.toString())
-                Log.d(TAG, response.errorBody().toString())
                 Log.d(TAG, response.message().toString())
 
                 if (response.isSuccessful) {
                     Log.d(TAG, "response.body()" + response.body().toString())
                 } else {
-
-                    Log.d(TAG, response.errorBody().toString())
+                    val errorResponse =
+                        gson.fromJson(response.errorBody()!!.charStream(), ProfileResponse::class.java)
+                    Log.d(TAG, "errorResponse.status: ${errorResponse.status}")
+                    Log.d(TAG, "errorResponse.message: ${errorResponse.message}")
                 }
             }
         })
