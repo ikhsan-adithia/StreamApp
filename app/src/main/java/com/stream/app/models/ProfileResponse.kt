@@ -60,7 +60,4 @@ data class Data(
 
 	@field:SerializedName("socmed")
 	val socmed: List<SocmedItem?>? = null
-) {
-	constructor():
-			this("", "", "", "", "", "", "", "")
-}
+)

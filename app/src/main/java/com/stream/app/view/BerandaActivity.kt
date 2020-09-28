@@ -129,6 +129,7 @@ class BerandaActivity : AppCompatActivity() {
 
                     tv_fullname_Beranda.setText(userDetails[1])
                     tv_username_Beranda.setText(userDetails[2])
+                    tv_myName_Beranda.text = userDetails[2]
                     tv_bio_Beranda.setText(userDetails[3])
                     if (userDetails[4] == "laki-laki") {
                         rb_Female_Beranda.isChecked = false
