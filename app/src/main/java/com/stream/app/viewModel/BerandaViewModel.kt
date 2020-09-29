@@ -28,86 +28,73 @@ class BerandaViewModel(application: Application): AndroidViewModel(application) 
 
     init {
         this.errors.value = errorList
-        this    ._userDetails.value = userDetailList
+        this._userDetails.value = userDetailList
     }
 
     fun getProfile(userDetail: String) {
-        val profile = ApiInterface.create(Extensions.API_ALPHA)
-            .getProfile(userDetail)
+        if (_userDetails.value!!.isEmpty()) {
+            val profile = ApiInterface.create(Extensions.API_ALPHA)
+                .getProfile(userDetail)
 
-        profile.enqueue(object : Callback<ProfileResponse> {
-            override fun onFailure(call: Call<ProfileResponse>, t: Throwable) {
-                Log.e(TAG, t.message.toString())
-                Toast.makeText(
-                    getApplication(),
-                    t.message.toString(),
-                    Toast.LENGTH_SHORT).show()
-                Log.e(TAG, t.cause.toString())
-                t.printStackTrace()
-                t.stackTrace
-                Log.e(TAG, "~~~~~~~~~~~~~~ERRORR~~~~~~~~~~~~~")
-            }
-
-            override fun onResponse(
-                call: Call<ProfileResponse>,
-                response: Response<ProfileResponse>
-            ) {
-                Log.d(TAG, response.code().toString())
-                Log.d(TAG, response.isSuccessful.toString())
-                Log.d(TAG, response.message().toString())
-
-                if (response.isSuccessful) {
-                    Log.d(TAG, "response.body()" + response.body().toString())
-                    val responseSuccess = response.body()!!
-                    val picture = responseSuccess.data!!.picture ?: ""
-                    val fullname = responseSuccess.data.fullname ?: ""
-                    val username = responseSuccess.data.username ?: ""
-                    val bio = responseSuccess.data.bio ?: "  "
-                    val jenisKelamin = responseSuccess.data.jenisKelamin ?: ""
-                    val tglLahir = responseSuccess.data.tglLahir ?: ""
-                    val status = responseSuccess.data.status ?: ""
-                    val socmed = responseSuccess.data.socmed.toString()
-                    Log.d(TAG, "picture: $picture")
-                    Log.d(TAG, "fullname: $fullname")
-                    Log.d(TAG, "username: $username")
-                    Log.d(TAG, "bio: $bio")
-                    Log.d(TAG, "jeniskelamin: $jenisKelamin")
-                    Log.d(TAG, "tglLahir: $tglLahir")
-                    Log.d(TAG, "status: $status")
-                    Log.d(TAG, "social media: $socmed")
-//                    userDetailList.add(picture)
-//                    userDetailList.add(fullname)
-//                    userDetailList.add(username)
-//                    userDetailList.add(bio)
-//                    userDetailList.add(jenisKelamin)
-//                    userDetailList.add(tglLahir)
-                    userDetailList.addAll(listOf(
-                        picture,
-                        fullname,
-                        username,
-                        bio,
-                        jenisKelamin,
-                        tglLahir,
-                        status
-                    ))
-//                    _userDetails.value = userDetailList
-//                    userDetailList = Data(
-//                        picture,
-//                        fullname,
-//                        username,
-//                        bio,
-//                        jenisKelamin,
-//                        tglLahir,
-//                        status
-//                    )
-
-                    _userDetails.value = userDetailList
-//                    Log.d(TAG, "userDetail: $_userDetails")
-                } else {
-                    handleErrorResponse(response)
+            profile.enqueue(object : Callback<ProfileResponse> {
+                override fun onFailure(call: Call<ProfileResponse>, t: Throwable) {
+                    Log.e(TAG, t.message.toString())
+                    Toast.makeText(
+                        getApplication(),
+                        t.message.toString(),
+                        Toast.LENGTH_SHORT).show()
+                    Log.e(TAG, t.cause.toString())
+                    t.printStackTrace()
+                    t.stackTrace
+                    Log.e(TAG, "~~~~~~~~~~~~~~ERRORR~~~~~~~~~~~~~")
                 }
-            }
-        })
+
+                override fun onResponse(
+                    call: Call<ProfileResponse>,
+                    response: Response<ProfileResponse>
+                ) {
+                    Log.d(TAG, response.code().toString())
+                    Log.d(TAG, response.isSuccessful.toString())
+                    Log.d(TAG, response.message().toString())
+
+                    if (response.isSuccessful) {
+                        Log.d(TAG, "response.body()" + response.body().toString())
+                        val responseSuccess = response.body()!!
+                        val picture = responseSuccess.data!!.picture ?: ""
+                        val fullname = responseSuccess.data.fullname ?: ""
+                        val username = responseSuccess.data.username ?: ""
+                        val bio = responseSuccess.data.bio ?: "  "
+                        val jenisKelamin = responseSuccess.data.jenisKelamin ?: ""
+                        val tglLahir = responseSuccess.data.tglLahir ?: ""
+                        val status = responseSuccess.data.status ?: ""
+                        val socmed = responseSuccess.data.socmed.toString()
+//                        Log.d(TAG, "picture: $picture")
+//                        Log.d(TAG, "fullname: $fullname")
+//                        Log.d(TAG, "username: $username")
+//                        Log.d(TAG, "bio: $bio")
+//                        Log.d(TAG, "jeniskelamin: $jenisKelamin")
+//                        Log.d(TAG, "tglLahir: $tglLahir")
+//                        Log.d(TAG, "status: $status")
+//                        Log.d(TAG, "social media: $socmed")
+                        userDetailList.addAll(listOf(
+                            picture,
+                            fullname,
+                            username,
+                            bio,
+                            jenisKelamin,
+                            tglLahir,
+                            status
+                        ))
+
+                        _userDetails.value = userDetailList
+//                    Log.d(TAG, "userDetail: $_userDetails")
+                    } else {
+                        handleErrorResponse(response)
+                    }
+                }
+            })
+        }
+
     }
 
     fun getUserDetails() = _userDetails as LiveData<List<String>>
@@ -121,7 +108,54 @@ class BerandaViewModel(application: Application): AndroidViewModel(application) 
         errorList.add(errorMessage)
     }
 
+    // Idea to scrap
+    // TODO: Fix
+//    private var mutableAdapter = GroupAdapter<ViewHolder>()
+//    private var _mutableAdapter = MutableLiveData<GroupAdapter<ViewHolder>>()
+//    fun getNotification(): LiveData<GroupAdapter<ViewHolder>> {
+//        val adapter = GroupAdapter<ViewHolder>()
+//        adapter.add(NotifItems(
+//            dummyNotifModel(
+//                "Tes notif #1",
+//                "1 day(s) ago")))
+//        adapter.add(NotifItems(
+//            dummyNotifModel(
+//                "Tes notif #2",
+//                "5 day(s) ago")))
+//        mutableAdapter = adapter
+//        _mutableAdapter.value = mutableAdapter
+//        return _mutableAdapter
+//    }
+
+//    private var dummyList = mutableListOf<dummyNotifModel>()
+//    private var _dummyList = MutableLiveData<List<dummyNotifModel>>()
+//    fun populateNotif() {
+//        val dumdum = dummyNotifModel()
+//        dumdum.text = "Tes #1"
+//        dumdum.time = "1 day(s) ago"
+//
+//        dummyList.add(dumdum)
+//        dummyList.add(dumdum)
+//
+//        Log.d(TAG, dummyList.size.toString())
+//
+//        _dummyList.value = dummyList
+//    }
+
+//    private var dummyList = mutableListOf<dummyNotifModel>()
+//    private var notifList = MutableLiveData<List<NotifItems>>()
+//    fun populateNotif() {
+//        dummyList.add(dummyNotifModel("tes #1", "1 day(s) ago"))
+//        dummyList.add(dummyNotifModel("tes #2", "2 day(s) ago"))
+//
+//        dummyList.forEach {
+//
+//        }
+//    }
+
     companion object {
         const val TAG = "Beranda"
     }
+
+//    fun getNotification(): LiveData<List<dummyNotifModel>> = _dummyList
 }

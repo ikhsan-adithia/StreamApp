@@ -8,6 +8,7 @@
 
     <color name="textColor">#fff</color>
     <color name="textColorDisable">#734FA1</color>
+    <color name="textImportant">#3FE8FF</color>
     <color name="hintEdittextColor">#A08FB6</color>
     <color name="red">#E40303</color>
     <color name="textColorEdittext">#A891C8</color>

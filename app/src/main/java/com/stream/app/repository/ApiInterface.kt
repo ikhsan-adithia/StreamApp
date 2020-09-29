@@ -37,15 +37,12 @@ interface ApiInterface {
         @Field ("password") password: String
     ): Call<LoginResponse>
 
-//    @Headers("Content-Length: 49")
     @GET("api/account/profile")
     fun getProfile(
     @Header("Authorization") header: String
-//        @Query("access_token") accessToken: String
     ): Call<ProfileResponse>
 
     companion object {
-//        private const val API_URL = "https://alpha.streamgaming.id"
 
         fun create(BASE_URL: String): ApiInterface {
             val interceptor: HttpLoggingInterceptor = HttpLoggingInterceptor().apply {
