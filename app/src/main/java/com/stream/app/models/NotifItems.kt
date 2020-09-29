@@ -6,7 +6,7 @@ import com.xwray.groupie.ViewHolder
 import kotlinx.android.synthetic.main.notif_items.view.*
 
 class NotifItems(
-    val notif: dummyNotifModel
+    val notif: DummyNotifModel
 //    val context: Context
 ): Item<ViewHolder>() {
     override fun getLayout(): Int {

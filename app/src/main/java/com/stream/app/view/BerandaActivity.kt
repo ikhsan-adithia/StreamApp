@@ -7,16 +7,17 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import com.bumptech.glide.Glide
-import com.google.android.material.bottomsheet.BottomSheetDialog
+import com.google.android.material.bottomsheet.BottomSheetBehavior
 import com.google.firebase.iid.FirebaseInstanceId
 import com.stream.app.R
+import com.stream.app.models.DummyNotifModel
 import com.stream.app.models.NotifItems
-import com.stream.app.models.dummyNotifModel
 import com.stream.app.repository.SessionManager
 import com.stream.app.viewModel.BerandaViewModel
 import com.xwray.groupie.GroupAdapter
 import com.xwray.groupie.ViewHolder
-import kotlinx.android.synthetic.main.activity_beranda.*
+import kotlinx.android.synthetic.main.bottomsheet_notif.*
+import kotlinx.android.synthetic.main.content_main.*
 
 class BerandaActivity : AppCompatActivity() {
 
@@ -78,20 +79,28 @@ class BerandaActivity : AppCompatActivity() {
             finish()
         }
 
+        val sheetBehavior = BottomSheetBehavior.from(bottomsheet_notif)
+//        sheetBehavior.state != BottomSheetBehavior.STATE_EXPANDED
         btn_notifBell_Beranda.setOnClickListener {
-            val dialogBottom =layoutInflater.inflate(R.layout.bottomsheet_notif, null)
-            val bottomSheetDialog = BottomSheetDialog(this)
-            bottomSheetDialog.setContentView(dialogBottom)
-            bottomSheetDialog.show()
+            Log.d(TAG, sheetBehavior.state.toString())
+//            val dialogBottom =layoutInflater.inflate(R.layout.bottomsheet_notif, null)
+//            val bottomSheetDialog = BottomSheetDialog(this)
+//            bottomSheetDialog.setContentView(dialogBottom)
+//            bottomSheetDialog.show()
+            if (sheetBehavior.state == BottomSheetBehavior.STATE_HIDDEN) {
+                sheetBehavior.state = BottomSheetBehavior.STATE_EXPANDED
+            } else {
+                sheetBehavior.state = BottomSheetBehavior.STATE_HIDDEN
+            }
         }
     }
 
     private fun foo() {
         // TODO: Tes #1 => observe mutableListOf<Notifitems>()
 
-        val fooList = mutableListOf<dummyNotifModel>()
-        fooList.add(dummyNotifModel("tes #3", "2 day(s) ago"))
-        fooList.add(dummyNotifModel("tes #4", "2 day(s) ago"))
+        val fooList = mutableListOf<DummyNotifModel>()
+        fooList.add(DummyNotifModel("tes #3", "2 day(s) ago"))
+        fooList.add(DummyNotifModel("tes #4", "2 day(s) ago"))
         val fiiList = mutableListOf<NotifItems>()
         fooList.forEach {
             fiiList.add(NotifItems(it))
