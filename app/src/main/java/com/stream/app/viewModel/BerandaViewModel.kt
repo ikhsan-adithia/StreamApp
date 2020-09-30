@@ -10,11 +10,15 @@ import com.google.gson.Gson
 import com.stream.app.Extensions
 import com.stream.app.models.ProfileResponse
 import com.stream.app.repository.ApiInterface
+import com.stream.app.repository.BerandaRespository
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 
 class BerandaViewModel(application: Application): AndroidViewModel(application) {
+
+    private val repository = BerandaRespository(application)
+
     private val gson = Gson()
 
     private var errorList = mutableListOf<String>()
@@ -142,20 +146,31 @@ class BerandaViewModel(application: Application): AndroidViewModel(application) 
 //        _dummyList.value = dummyList
 //    }
 
-//    private var dummyList = mutableListOf<dummyNotifModel>()
-//    private var notifList = MutableLiveData<List<NotifItems>>()
-//    fun populateNotif() {
-//        dummyList.add(dummyNotifModel("tes #1", "1 day(s) ago"))
-//        dummyList.add(dummyNotifModel("tes #2", "2 day(s) ago"))
-//
+//    private var dummyList = mutableListOf<DummyNotifModel>()
+//    private var notifList = mutableListOf<NotifItems>()
+//    private var _notifList = MutableLiveData<List<NotifItems>>()
+//    fun populateNotif()
+////            : LiveData<List<NotifItems>>
+//    {
+//        dummyList.add(DummyNotifModel("tes #1", "1 day(s) ago"))
+//        dummyList.add(DummyNotifModel("tes #2", "2 day(s) ago"))
+//        var id = 0
 //        dummyList.forEach {
-//
+//            id++
+//            notifList.add(NotifItems(it))
+//            if (id == dummyList.size) {
+//                _notifList.value = notifList
+//            }
 //        }
+//
+////        return _notifList
 //    }
+
+    fun populateNotification() = repository.populateNotification()
+    fun getNotification() = repository.getNotification()
 
     companion object {
         const val TAG = "Beranda"
     }
 
-//    fun getNotification(): LiveData<List<dummyNotifModel>> = _dummyList
 }

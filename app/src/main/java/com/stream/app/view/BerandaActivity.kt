@@ -10,8 +10,6 @@ import com.bumptech.glide.Glide
 import com.google.android.material.bottomsheet.BottomSheetBehavior
 import com.google.firebase.iid.FirebaseInstanceId
 import com.stream.app.R
-import com.stream.app.models.DummyNotifModel
-import com.stream.app.models.NotifItems
 import com.stream.app.repository.SessionManager
 import com.stream.app.viewModel.BerandaViewModel
 import com.xwray.groupie.GroupAdapter
@@ -45,19 +43,9 @@ class BerandaActivity : AppCompatActivity() {
             showUserProfile(details)
         })
 
-//        viewModel.populateNotif()
-//        viewModel.getNotification().observe(this, Observer {
-//            if (it.size < 0) {
-//                Log.d(TAG, "it Size${it.size}")
-//                val adapter = GroupAdapter<ViewHolder>()
-//                it.forEach {  dummyNotif ->
-//                    Log.d(TAG, "dummyNotif ${dummyNotif.time}")
-//                    adapter.add(NotifItems(dummyNotif))
-//                }
-//                rv_notification.adapter = adapter
-//            }
-//        })
-        foo()
+        observeNotification()
+
+//        foo()
 
         btn_token_Beranda.setOnClickListener {
             FirebaseInstanceId.getInstance().instanceId.addOnCompleteListener { task ->
@@ -80,46 +68,57 @@ class BerandaActivity : AppCompatActivity() {
         }
 
         val sheetBehavior = BottomSheetBehavior.from(bottomsheet_notif)
-//        sheetBehavior.state != BottomSheetBehavior.STATE_EXPANDED
+        sheetBehavior.state = BottomSheetBehavior.STATE_HIDDEN
         btn_notifBell_Beranda.setOnClickListener {
-            Log.d(TAG, sheetBehavior.state.toString())
 //            val dialogBottom =layoutInflater.inflate(R.layout.bottomsheet_notif, null)
 //            val bottomSheetDialog = BottomSheetDialog(this)
 //            bottomSheetDialog.setContentView(dialogBottom)
 //            bottomSheetDialog.show()
             if (sheetBehavior.state == BottomSheetBehavior.STATE_HIDDEN) {
-                sheetBehavior.state = BottomSheetBehavior.STATE_EXPANDED
+                sheetBehavior.state = BottomSheetBehavior.STATE_HALF_EXPANDED
             } else {
                 sheetBehavior.state = BottomSheetBehavior.STATE_HIDDEN
             }
         }
     }
 
-    private fun foo() {
-        // TODO: Tes #1 => observe mutableListOf<Notifitems>()
-
-        val fooList = mutableListOf<DummyNotifModel>()
-        fooList.add(DummyNotifModel("tes #3", "2 day(s) ago"))
-        fooList.add(DummyNotifModel("tes #4", "2 day(s) ago"))
-        val fiiList = mutableListOf<NotifItems>()
-        fooList.forEach {
-            fiiList.add(NotifItems(it))
-        }
-//        fooList.forEach {
-//            adapter.add(NotifItems(it))
-//        }
-//        adapter.add(NotifItems(dummyNotifModel("tes #1", "1 day(s) ago")))
-//        adapter.add(NotifItems(dummyNotifModel("tes #2", "1 day(s) ago")))
-//
-//        rv_notification.adapter = adapter
-        val adapter = GroupAdapter<ViewHolder>().apply {
-            this.addAll(fiiList)
-        }
-
-        rv_notification.apply {
-            this.adapter = adapter
-        }
+    private fun observeNotification() {
+        viewModel.populateNotification()
+        viewModel.getNotification().observe(this, Observer {
+            val groupAdapter = GroupAdapter<ViewHolder>().apply {
+                this.addAll(it)
+            }
+            rv_notification.apply {
+                this.adapter = groupAdapter
+            }
+        })
     }
+
+//    private fun foo() {
+//        // TODO: Tes #1 => observe mutableListOf<Notifitems>()
+//
+//        val fooList = mutableListOf<DummyNotifModel>()
+//        fooList.add(DummyNotifModel("tes #3", "2 day(s) ago"))
+//        fooList.add(DummyNotifModel("tes #4", "2 day(s) ago"))
+//        val fiiList = mutableListOf<NotifItems>()
+//        fooList.forEach {
+//            fiiList.add(NotifItems(it))
+//        }
+////        fooList.forEach {
+////            adapter.add(NotifItems(it))
+////        }
+////        adapter.add(NotifItems(dummyNotifModel("tes #1", "1 day(s) ago")))
+////        adapter.add(NotifItems(dummyNotifModel("tes #2", "1 day(s) ago")))
+////
+////        rv_notification.adapter = adapter
+//        val adapter = GroupAdapter<ViewHolder>().apply {
+//            this.addAll(fiiList)
+//        }
+//
+//        rv_notification.apply {
+//            this.adapter = adapter
+//        }
+//    }
 
     private fun showUserProfile(details: List<String>) {
         val userDetails = mutableListOf<String>()
@@ -135,7 +134,6 @@ class BerandaActivity : AppCompatActivity() {
 
                 Glide.with(this)
                     .load(userDetails[0])
-                    .circleCrop()
                     .into(img_profile_Beranda)
 
                 tv_fullname_Beranda.setText(userDetails[1])
