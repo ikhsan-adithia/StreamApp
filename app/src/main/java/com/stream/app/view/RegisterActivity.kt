@@ -32,6 +32,8 @@ class RegisterActivity : AppCompatActivity(), DatePickerDialog.OnDateSetListener
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_register)
 
+        supportActionBar?.hide()
+
         viewModel = ViewModelProvider(this).get(RegisterViewModel::class.java)
 
         viewModel.getErrors().observe(this, Observer { errors ->

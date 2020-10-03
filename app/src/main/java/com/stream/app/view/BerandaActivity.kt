@@ -26,6 +26,8 @@ class BerandaActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_beranda)
 
+        supportActionBar?.hide()
+
         viewModel = ViewModelProvider(this).get(BerandaViewModel::class.java)
 
         sessionManager = SessionManager(this)
@@ -43,9 +45,13 @@ class BerandaActivity : AppCompatActivity() {
             showUserProfile(details)
         })
 
-        observeNotification()
+        observeNotification(accessToken)
 
 //        foo()
+
+        btn_home.setOnClickListener {
+            startActivity(Intent(this, MainActivity::class.java))
+        }
 
         btn_token_Beranda.setOnClickListener {
             FirebaseInstanceId.getInstance().instanceId.addOnCompleteListener { task ->
@@ -82,8 +88,8 @@ class BerandaActivity : AppCompatActivity() {
         }
     }
 
-    private fun observeNotification() {
-        viewModel.populateNotification()
+    private fun observeNotification(accessToken: String) {
+        viewModel.populateNotification(accessToken)
         viewModel.getNotification().observe(this, Observer {
             val groupAdapter = GroupAdapter<ViewHolder>().apply {
                 this.addAll(it)

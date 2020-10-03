@@ -1,6 +1,7 @@
 package com.stream.app.repository
 
 import com.stream.app.models.LoginResponse
+import com.stream.app.models.NotificationResponse
 import com.stream.app.models.ProfileResponse
 import com.stream.app.models.RegisterResponse
 import okhttp3.OkHttpClient
@@ -41,6 +42,11 @@ interface ApiInterface {
     fun getProfile(
     @Header("Authorization") header: String
     ): Call<ProfileResponse>
+
+    @GET("api/notification")
+    fun getNotifications(
+        @Header("Authorization") header: String
+    ): Call<NotificationResponse>
 
     companion object {
 

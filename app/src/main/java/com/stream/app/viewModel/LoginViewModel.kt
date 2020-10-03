@@ -16,7 +16,7 @@ import retrofit2.Response
 
 class LoginViewModel(application: Application): AndroidViewModel(application) {
 
-    private var sessionManager: SessionManager = SessionManager(application)
+    private var sessionManager: SessionManager = SessionManager(getApplication())
 
     private var errorList = mutableListOf<String>()
     private var errors = MutableLiveData<List<String>>()

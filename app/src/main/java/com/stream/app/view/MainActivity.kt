@@ -1,34 +1,31 @@
 package com.stream.app.view
 
-import android.content.Intent
 import android.os.Bundle
-import android.os.Handler
+import android.view.Menu
 import androidx.appcompat.app.AppCompatActivity
+import androidx.navigation.NavController
+import androidx.navigation.findNavController
+import androidx.navigation.ui.setupActionBarWithNavController
 import com.stream.app.R
-import com.stream.app.repository.SessionManager
+import kotlinx.android.synthetic.main.activity_main.*
 
-class MainActivity : AppCompatActivity() {
-
-    lateinit var sessionManager: SessionManager
-
+class MainActivity : AppCompatActivity(R.layout.activity_main) {
+    private lateinit var navController: NavController
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
+        navController = findNavController(R.id.main_fragment)
+        setupActionBarWithNavController(navController)
+        supportActionBar?.hide()
+    }
 
-//        Handler().postDelayed({
-//            startActivity(Intent(this, LoginActivity::class.java))
-//            finish()
-//        }, 1000)
+    override fun onCreateOptionsMenu(menu: Menu?): Boolean {
+        menuInflater.inflate(R.menu.menu_bottom,menu)
+        bottomBar.setupWithNavController(menu!!,navController)
+        return true
+    }
 
-        sessionManager = SessionManager(this)
-
-        Handler().postDelayed({
-            if (sessionManager.isLoggin) {
-                startActivity(Intent(this, BerandaActivity::class.java))
-            } else {
-                startActivity(Intent(this, LoginActivity::class.java))
-            }
-            finish()
-        }, 1000)
+    override fun onSupportNavigateUp(): Boolean {
+        navController.navigateUp()
+        return true
     }
 }

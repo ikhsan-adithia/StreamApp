@@ -18,13 +18,15 @@ class LoginActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_login)
 
+        supportActionBar?.hide()
+
         viewModel = ViewModelProvider(this).get(LoginViewModel::class.java)
 
         tv_errors_Login.visibility = View.GONE
 
         viewModel.getAllowLogin().observe(this, Observer {
             if (it) {
-                startActivity(Intent(this, BerandaActivity::class.java))
+                startActivity(Intent(this, MainActivity::class.java))
                 finish()
             }
         })

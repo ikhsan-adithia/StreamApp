@@ -8,6 +8,7 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import com.google.gson.Gson
 import com.stream.app.Extensions
+import com.stream.app.models.NotifItems
 import com.stream.app.models.ProfileResponse
 import com.stream.app.repository.ApiInterface
 import com.stream.app.repository.BerandaRespository
@@ -112,62 +113,10 @@ class BerandaViewModel(application: Application): AndroidViewModel(application) 
         errorList.add(errorMessage)
     }
 
-    // Idea to scrap
-    // TODO: Fix
-//    private var mutableAdapter = GroupAdapter<ViewHolder>()
-//    private var _mutableAdapter = MutableLiveData<GroupAdapter<ViewHolder>>()
-//    fun getNotification(): LiveData<GroupAdapter<ViewHolder>> {
-//        val adapter = GroupAdapter<ViewHolder>()
-//        adapter.add(NotifItems(
-//            dummyNotifModel(
-//                "Tes notif #1",
-//                "1 day(s) ago")))
-//        adapter.add(NotifItems(
-//            dummyNotifModel(
-//                "Tes notif #2",
-//                "5 day(s) ago")))
-//        mutableAdapter = adapter
-//        _mutableAdapter.value = mutableAdapter
-//        return _mutableAdapter
-//    }
-
-//    private var dummyList = mutableListOf<dummyNotifModel>()
-//    private var _dummyList = MutableLiveData<List<dummyNotifModel>>()
-//    fun populateNotif() {
-//        val dumdum = dummyNotifModel()
-//        dumdum.text = "Tes #1"
-//        dumdum.time = "1 day(s) ago"
-//
-//        dummyList.add(dumdum)
-//        dummyList.add(dumdum)
-//
-//        Log.d(TAG, dummyList.size.toString())
-//
-//        _dummyList.value = dummyList
-//    }
-
-//    private var dummyList = mutableListOf<DummyNotifModel>()
-//    private var notifList = mutableListOf<NotifItems>()
-//    private var _notifList = MutableLiveData<List<NotifItems>>()
-//    fun populateNotif()
-////            : LiveData<List<NotifItems>>
-//    {
-//        dummyList.add(DummyNotifModel("tes #1", "1 day(s) ago"))
-//        dummyList.add(DummyNotifModel("tes #2", "2 day(s) ago"))
-//        var id = 0
-//        dummyList.forEach {
-//            id++
-//            notifList.add(NotifItems(it))
-//            if (id == dummyList.size) {
-//                _notifList.value = notifList
-//            }
-//        }
-//
-////        return _notifList
-//    }
-
-    fun populateNotification() = repository.populateNotification()
-    fun getNotification() = repository.getNotification()
+    fun populateNotification(accessToken: String) = repository.populateNotification(accessToken)
+    fun getNotification(): LiveData<List<NotifItems>> {
+        return repository.getNotification()
+    }
 
     companion object {
         const val TAG = "Beranda"

@@ -7,6 +7,7 @@ import com.google.android.material.snackbar.Snackbar
 
 object Extensions {
     const val API_ALPHA = "https://alpha.streamgaming.id"
+    const val Beranda_TAG = "BerandaActivity"
 //    const val API_LOCALHOST = "http://localhost:8000/"
 }
 
